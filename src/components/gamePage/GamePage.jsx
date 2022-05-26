@@ -1,11 +1,8 @@
-import Title from '../title/Title'
-import Subtitle from '../subtitle/Subtitle'
-
+import Header from '../header/Header'
 function GamePage () {
     return (
         <div className="container">
-         <Title>Jogo da velha</Title>
-         <Subtitle>Alan Nunes</Subtitle>
+        <Header />
         </div>
     )
 }
