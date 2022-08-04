@@ -3,3 +3,15 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
+
+.gamecontent {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.gameinfo {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
