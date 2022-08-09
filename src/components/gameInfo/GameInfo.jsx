@@ -1,7 +1,13 @@
 import styles from './GameInfo.module.css'
 import Icon from '../icon/Icon'
+import Button from '../button/Button'
 
-function GameInfo ({ currentPlayer, winner }) {
+function GameInfo ({ currentPlayer, winner, onReset, disabled }) {
+
+   const shouldEnableButton = () => {
+    if(winner !== 0) return true
+   }
+
     return(
         <div className={styles.gameinfo}>
             {
@@ -27,7 +33,13 @@ function GameInfo ({ currentPlayer, winner }) {
                     winner === -1 && <Icon iconName="x" />
                 }
                 </>   
-                }  
+                }
+                <Button 
+                onClick={onReset}
+                disabled={!shouldEnableButton()}
+                >
+                    Reiniciar
+                </Button>
          </div>
     )
 }

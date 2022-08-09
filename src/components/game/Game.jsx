@@ -36,6 +36,11 @@ function Game () {
         })
      }
 
+     const handleReset = () => {
+        setGameState(Array(9).fill(0))
+        setWinner(0)
+     }
+
      useEffect(() => {
         setCurrentPlayer(currentPlayer * -1)
         verifyGame()
@@ -58,6 +63,7 @@ function Game () {
          <GameInfo 
           currentPlayer={currentPlayer}
           winner={winner}
+          onReset={handleReset}
          />
         </div>
     )
