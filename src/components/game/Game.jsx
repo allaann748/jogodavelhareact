@@ -2,6 +2,7 @@ import GameOption from '../gameOption/GameOption'
 import styles from './Game.module.css'
 import { useState, useEffect } from 'react'
 import GameInfo from '../gameInfo/GameInfo'
+import Score from '../score/Score'
 
 const winnerTable = [
     [0, 1, 2],
@@ -21,7 +22,10 @@ function Game () {
     const [winner, setWinner] = useState(0)
     const [winnerLine, setWinnerLine] = useState([])
     const [draw, setDraw] = useState(false)
+    const [xWinnerTimes, setxWinnerTimes] = useState(0)
+    const [circleWinnerTimes, setCircleWinnerTimes] = useState(0)
 
+    
     const handleclick = (pos) => {
         if (gameState[pos] === 0 && winner === 0){
         let newGameState = [...gameState]
@@ -37,7 +41,12 @@ function Game () {
          if (sum === 3 || sum === -3) {
          setWinner(sum / 3) 
          setWinnerLine(line)
+         if (sum > 0) {
+            setCircleWinnerTimes(circleWinnerTimes +1)
+         } else {
+            setxWinnerTimes(xWinnerTimes +1)
          }
+          }
         })
      }
 
@@ -67,7 +76,8 @@ function Game () {
      }, [winner])
 
          return (
-        <div className={styles.gamecontent}>
+            <>
+         <div className={styles.gamecontent}>
             <div className={styles.game}>
             {
                 gameState.map((value, pos) =>
@@ -89,6 +99,11 @@ function Game () {
           isDraw={draw}
          />
         </div>
+        <Score 
+          xWinnerTimes={xWinnerTimes}
+          circleWinnerTimes={circleWinnerTimes}
+        />
+        </>
     )
 }
 

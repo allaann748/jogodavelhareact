@@ -1,0 +1,15 @@
+.score {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.scorecontent {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.sco {
+    margin: 20px;
+}
